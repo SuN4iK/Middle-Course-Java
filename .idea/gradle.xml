@@ -9,6 +9,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Atm" />
+            <option value="$PROJECT_DIR$/NightClub" />
             <option value="$PROJECT_DIR$/hw02-gradle" />
             <option value="$PROJECT_DIR$/hw03-gradle" />
           </set>

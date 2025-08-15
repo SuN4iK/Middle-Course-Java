@@ -3,10 +3,13 @@ plugins {
     id("java-library")
     id("org.jetbrains.kotlin.jvm") version "2.2.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("org.springframework.boot") version "3.5.3"
     id("io.spring.dependency-management") version "1.1.7"
 }
-
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.boot:spring-boot-dependencies:3.5.3")  // Берём BOM от Spring Boot
+    }
+}
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
@@ -31,4 +34,15 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+tasks.withType<JavaExec> {
+    systemProperty("file.encoding", "utf-8")
+}
+
+tasks.withType<Test> {
+    systemProperty("file.encoding", "UTF-8")
+}
+
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
 }
