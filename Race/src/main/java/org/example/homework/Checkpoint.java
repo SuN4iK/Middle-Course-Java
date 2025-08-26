@@ -14,9 +14,15 @@ public abstract class Checkpoint {
     private final double latitude;
     private final double longitude;
 
-    protected void validate() {
+    @Builder
+    protected Checkpoint(String name, double latitude, double longitude) {
         validateCoordinates(latitude, longitude);
+
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
+
     private void validateCoordinates(double latitude, double longitude) {
         if (latitude < -90.0 || latitude > 90.0) {
             throw new IllegalArgumentException("Широта должна быть в диапазоне -90.0° до +90.0°");
