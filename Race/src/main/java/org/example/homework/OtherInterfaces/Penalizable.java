@@ -1,4 +1,4 @@
-package org.example.homework;
+package org.example.homework.OtherInterfaces;
 
 public interface Penalizable {
     double getPenaltyHours();

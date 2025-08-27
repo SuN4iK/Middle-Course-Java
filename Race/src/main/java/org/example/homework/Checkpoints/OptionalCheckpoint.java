@@ -1,13 +1,15 @@
-package org.example.homework;
+package org.example.homework.Checkpoints;
 
-import lombok.Builder;
+import lombok.Getter;
 import lombok.ToString;
-@ToString(callSuper = true)
-public class OptionalCheckpoint extends Checkpoint implements Penalizable{
-    private final double penaltyHours;
-    private double totalPenaltyApplied;
+import lombok.experimental.SuperBuilder;
 
-    @Builder
+@Getter
+@ToString(callSuper = true)
+@SuperBuilder
+public class OptionalCheckpoint extends Checkpoint {
+    private final double penaltyHours;
+
     public OptionalCheckpoint(String name, double latitude, double longitude, double penaltyHours) {
         super(name, latitude, longitude);
         validatePenalty(penaltyHours);
@@ -18,14 +20,5 @@ public class OptionalCheckpoint extends Checkpoint implements Penalizable{
         if (penaltyHours < 0) {
             throw new IllegalArgumentException("Штраф должен быть больше нуля");
         }
-    }
-    @Override
-    public void applyPenalization(double penaltyHours) {
-        this.totalPenaltyApplied += penaltyHours;
-    }
-
-    @Override
-    public double getPenaltyHours() {
-        return totalPenaltyApplied;
     }
 }

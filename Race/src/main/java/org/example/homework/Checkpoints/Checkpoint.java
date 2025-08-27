@@ -1,23 +1,19 @@
-package org.example.homework;
+package org.example.homework.Checkpoints;
 
-
-import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @ToString
-@Builder
-
+@SuperBuilder
 public abstract class Checkpoint {
     private final String name;
     private final double latitude;
     private final double longitude;
 
-    @Builder
     protected Checkpoint(String name, double latitude, double longitude) {
         validateCoordinates(latitude, longitude);
-
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;

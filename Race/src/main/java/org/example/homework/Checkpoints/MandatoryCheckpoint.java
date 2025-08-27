@@ -1,13 +1,11 @@
-package org.example.homework;
+package org.example.homework.Checkpoints;
 
-import lombok.Builder;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @ToString(callSuper = true)
+@SuperBuilder
 public class MandatoryCheckpoint extends Checkpoint {
-
-    @Builder
     public MandatoryCheckpoint(String name, double latitude, double longitude) {
         super(name, latitude, longitude);
     }
