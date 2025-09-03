@@ -1,4 +1,4 @@
-package TrafficLightFactory;
+package TrafficLightFactory.TrafficLights;
 
 import lombok.Data;
 import lombok.Builder;
@@ -12,7 +12,7 @@ public class PedestrianTrafficLight extends AbstractTrafficLight {
     @Override
     public void turnOn() {
         isOn = true;
-        System.out.println("Car Traffic Light is ON");
+        System.out.println("Pedestrian Traffic Light is ON");
         if (mediator != null) {
             mediator.notify(this, "TURNED_ON");
         }
@@ -21,7 +21,7 @@ public class PedestrianTrafficLight extends AbstractTrafficLight {
     @Override
     public void turnOff() {
         isOn = false;
-        System.out.println("Car Traffic Light is OFF");
+        System.out.println("Pedestrian Traffic Light is OFF");
         if (mediator != null) {
             mediator.notify(this, "TURNED_OFF");
         }

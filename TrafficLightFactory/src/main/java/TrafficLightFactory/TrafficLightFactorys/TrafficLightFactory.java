@@ -1,8 +1,11 @@
-package TrafficLightFactory;
+package TrafficLightFactory.TrafficLightFactorys;
+
+import TrafficLightFactory.TrafficLights.TrafficLight;
 
 public abstract class TrafficLightFactory {
     public abstract TrafficLight createTrafficLight();
 
+    //Factory Method
     public TrafficLight getTrafficLight() {
         try {
             var light = createTrafficLight();

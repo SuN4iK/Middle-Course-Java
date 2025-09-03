@@ -1,4 +1,12 @@
-package TrafficLightFactory;
+package TrafficLightFactory.Facades;
+
+import TrafficLightFactory.Controllers.TrafficLightController;
+import TrafficLightFactory.Groups.TrafficLightGroup;
+import TrafficLightFactory.Mediators.TrafficLightMediator;
+import TrafficLightFactory.TrafficLightFactorys.CarTrafficLightFactory;
+import TrafficLightFactory.TrafficLightFactorys.PedestrianTrafficLightFactory;
+import TrafficLightFactory.TrafficLightFactorys.TrafficLightFactory;
+import TrafficLightFactory.TrafficLights.TrafficLight;
 
 import java.util.Map;
 

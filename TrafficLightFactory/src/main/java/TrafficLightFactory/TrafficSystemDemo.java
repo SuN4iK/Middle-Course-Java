@@ -1,15 +1,15 @@
 package TrafficLightFactory;
 
+import TrafficLightFactory.Facades.TrafficSystemFacade;
+
 public class TrafficSystemDemo {
     public static void main(String[] args) {
         try {
             var trafficSystem = new TrafficSystemFacade();
 
-            // Создаем отдельные светофоры
             var carLight = trafficSystem.createTrafficLight("car");
             var pedestrianLight = trafficSystem.createTrafficLight("pedestrian");
 
-            // Создаем группу светофоров для перекрестка
             var intersection = trafficSystem.createIntersectionGroup();
 
             System.out.println("=== Testing individual lights ===");

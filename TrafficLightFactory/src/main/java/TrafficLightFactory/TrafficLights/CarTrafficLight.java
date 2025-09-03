@@ -1,4 +1,4 @@
-package TrafficLightFactory;
+package TrafficLightFactory.TrafficLights;
 
 import lombok.Data;
 import lombok.Builder;

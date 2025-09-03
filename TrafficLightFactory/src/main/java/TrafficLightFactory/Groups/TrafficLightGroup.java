@@ -1,8 +1,13 @@
-package TrafficLightFactory;
+package TrafficLightFactory.Groups;
+
+import TrafficLightFactory.Mediators.TrafficLightMediator;
+import TrafficLightFactory.TrafficLights.TrafficLight;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+//Composite
 public class TrafficLightGroup implements TrafficLight {
     private final List<TrafficLight> trafficLights = new ArrayList<>();
     private TrafficLightMediator mediator;

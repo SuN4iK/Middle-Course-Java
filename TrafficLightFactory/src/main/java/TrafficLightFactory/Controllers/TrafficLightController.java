@@ -1,4 +1,7 @@
-package TrafficLightFactory;
+package TrafficLightFactory.Controllers;
+
+import TrafficLightFactory.Mediators.TrafficLightMediator;
+import TrafficLightFactory.TrafficLights.TrafficLight;
 
 import java.util.ArrayList;
 import java.util.List;

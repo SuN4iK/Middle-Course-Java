@@ -1,4 +1,6 @@
-package TrafficLightFactory;
+package TrafficLightFactory.TrafficLights;
+
+import TrafficLightFactory.Mediators.TrafficLightMediator;
 
 public abstract class AbstractTrafficLight implements TrafficLight {
     protected TrafficLightMediator mediator;
