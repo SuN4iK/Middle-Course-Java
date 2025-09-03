@@ -21,6 +21,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
+
 }
 
 tasks.test {
