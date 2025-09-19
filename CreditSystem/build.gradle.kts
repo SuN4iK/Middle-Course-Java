@@ -18,7 +18,6 @@ java {
 }
 
 application {
-    // Укажи здесь свой main-класс
     mainClass.set("CreditSystem.CreditSystemDemo")
 }
 
@@ -41,11 +40,13 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
 tasks.shadowJar {
     archiveBaseName.set("CreditSystem-fat")
     archiveClassifier.set("")
     archiveVersion.set("")
 }
+
 tasks.withType<JavaExec> {
     systemProperty("file.encoding", "utf-8")
 }
@@ -57,6 +58,11 @@ tasks.withType<Test> {
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
 }
+
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
 }
+
+//TODO
+//Настоить BOM
+//Натсроить проблемы со сканерами
