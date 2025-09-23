@@ -2,6 +2,7 @@ plugins {
     java
     application
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("io.spring.dependency-management") version "1.1.7"
 }
 
 group = "org.example"
@@ -17,6 +18,13 @@ java {
     }
 }
 
+//BOM
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.boot:spring-boot-dependencies:3.5.3")  // Берём BOM от Spring Boot
+    }
+}
+
 application {
     mainClass.set("Race.Main")
 }
@@ -26,15 +34,12 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 
-    // Spring Boot BOM для управления версиями зависимостей
-    implementation(platform("org.springframework.boot:spring-boot-dependencies:3.3.4"))
-
     // Lombok
-    compileOnly("org.projectlombok:lombok:1.18.30")
-    annotationProcessor("org.projectlombok:lombok:1.18.30")
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
 
     // Тестовые зависимости
-    testImplementation("org.mockito:mockito-core:5.14.2")
+    testImplementation("org.mockito:mockito-core")
 }
 
 tasks.test {
@@ -64,5 +69,4 @@ tasks.named<JavaExec>("run") {
 }
 
 //TODO
-//Настоить BOM
 //Натсроить проблемы со сканерами

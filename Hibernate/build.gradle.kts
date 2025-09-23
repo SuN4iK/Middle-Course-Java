@@ -26,7 +26,7 @@ dependencyManagement {
 }
 
 application {
-    mainClass.set("Atm.Atm")
+    mainClass.set("Hibernate.Main")
 }
 
 dependencies {
@@ -40,6 +40,18 @@ dependencies {
 
     // Тестовые зависимости
     testImplementation("org.mockito:mockito-core")
+
+    // Hibernate Core
+    implementation("org.hibernate:hibernate-core:6.4.4.Final")
+
+    // Database driver (пример для PostgreSQL)
+    implementation("org.postgresql:postgresql")
+
+    // HikariCP для connection pool (опционально, но рекомендуется)
+    implementation("com.zaxxer:HikariCP")
+
+    // JPA API (если нужен только API)
+    implementation("jakarta.persistence:jakarta.persistence-api")
 }
 
 tasks.test {
@@ -47,7 +59,7 @@ tasks.test {
 }
 
 tasks.shadowJar {
-    archiveBaseName.set("Atm-fat")
+    archiveBaseName.set("Hibernate-fat")
     archiveClassifier.set("")
     archiveVersion.set("")
 }
@@ -69,4 +81,5 @@ tasks.named<JavaExec>("run") {
 }
 
 //TODO
+//Настоить BOM
 //Натсроить проблемы со сканерами
