@@ -1,4 +1,4 @@
-package Hibernate;
+package Hibernate.experiments;
 
 public enum Faculty {
     COMPUTER_SCIENCE,

@@ -1,16 +1,20 @@
-package Hibernate;
+package Hibernate.entities;
 
+import Hibernate.experiments.Faculty;
 import jakarta.persistence.*;
 import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="students")
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,5 +38,4 @@ public class Student {
     @Enumerated(EnumType.STRING)
     @Column(name = "faculty")
     private Faculty faculty;
-
 }

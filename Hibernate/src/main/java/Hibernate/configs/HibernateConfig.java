@@ -1,11 +1,11 @@
-package Hibernate;
+package Hibernate.configs;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import Hibernate.TestEntity;
-import Hibernate.Student;
+import Hibernate.entities.TestEntity;
+import Hibernate.entities.Student;
 
 public class HibernateConfig {
     private static SessionFactory sessionFactory;

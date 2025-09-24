@@ -1,4 +1,4 @@
-package Hibernate;
+package Hibernate.experiments;
 
 import jakarta.persistence.Persistence;
 import org.hibernate.Session;

@@ -1,9 +1,10 @@
 package Hibernate;
 
-import Hibernate.HibernateConfig;
-import Hibernate.TestEntity;
+import Hibernate.configs.HibernateConfig;
+import Hibernate.entities.Student;
+import Hibernate.experiments.Faculty;
+import Hibernate.experiments.StudentDAO;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,6 +12,33 @@ public class Main {
 
         try {
             testDatabaseConnection();
+            StudentDAO dao = new StudentDAO();
+            System.out.println("=== ДЕМО РАБОТЫ СО СТУДЕНТАМИ ===\n");
+
+            System.out.println("СОЗДАЕМ СТУДИКОВ");
+            Student student1 = Student.builder()
+                    .firstName("Иван")
+                    .lastName("Петров")
+                    .age(20)
+                    .email("ivan.petrov@mail.ru")
+                    .faculty(Faculty.COMPUTER_SCIENCE)
+                    .build();
+
+            Student student2 = Student.builder()
+                    .firstName("Мария")
+                    .lastName("Сидорова")
+                    .age(19)
+                    .email("maria.sidorova@mail.ru")
+                    .faculty(Faculty.MATHEMATICS)
+                    .build();
+            System.out.println("Сохраняем студиков в базу..");
+            Long id1 = dao.saveStudent(student1);
+            Long id2 = dao.saveStudent(student2);
+            Student foundStudent = dao.getStudentById(id1);
+            if (foundStudent != null) {
+                System.out.println("Найден студент: " + foundStudent);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
