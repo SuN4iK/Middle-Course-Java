@@ -2,6 +2,7 @@ package Hibernate.experiments;
 
 import Hibernate.configs.HibernateConfig;
 import Hibernate.entities.Student;
+import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.List;
@@ -59,5 +60,33 @@ public class StudentDAO {
             session.close();
         }
         return students;
+    }
+    public List<Student> findAllWithJPQL() {
+        Session session = HibernateConfig.getSessionFactory().openSession();
+        try {
+            String jpql = "SELECT s FROM Student s";
+            // 4. Создаем типизированный запрос
+            // session.createQuery() - метод Hibernate для JPQL
+            // Student.class - указываем, что ожидаем объекты Student
+            TypedQuery<Student> query = session.createQuery(jpql, Student.class);
+            // 5. Выполняем запрос и возвращаем результат
+            // getResultList() - получаем все записи
+            return query.getResultList();
+            // 6. Закрываем сессию в любом случае (даже если была ошибка)
+            // Важно для освобождения ресурсов
+        } finally {
+            session.close();
+        }
+    }
+    public List<Student> findStudentsOlderThanJPQL(int age) {
+        Session session = HibernateConfig.getSessionFactory().openSession();
+        try {
+            String jpql = "SELECT s FROM Student s WHERE s.age > :minAge ORDER BY s.age DESC";
+            TypedQuery<Student> query = session.createQuery(jpql, Student.class);
+            query.setParameter("minAge", age);
+            return query.getResultList();
+        } finally {
+            session.close();
+        }
     }
 }
