@@ -3,7 +3,7 @@ package Example;
 public class Example {
   public static void main(String[] args) {
     System.out.println("Hello world!");
-    var person = new Person(13, "Долблат");
+    Person person = new Person(32, "Долбаеб");
     System.out.println(person.getAge());
   }
 }
